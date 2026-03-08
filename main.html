@@ -7,35 +7,101 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <audio id="bg-music" loop>
+      <source src="LINK_NHAC_CUA_BAN.mp3" type="audio/mpeg" />
+    </audio>
+    <div id="splash-screen" onclick="startExperience()">
+      <div class="splash-content">
+        <h1 class="splash-title">Gửi đến người con gái đặc biệt...</h1>
+        <p class="splash-subtitle">(Chạm vào màn hình để bắt đầu)</p>
+      </div>
+    </div>
+
+    <div
+      id="main-content"
+      style="opacity: 0; pointer-events: none; transition: opacity 1.5s ease"
+    >
+      ...
+    </div>
     <section class="section part-1">
       <div class="glass-card">
-        <img src="assets/your-photo.jpg" alt="Âu Khôi" class="avatar" />
-        <h1>Chúc Mừng Ngày Quốc Tế Phụ Nữ</h1>
-        <p>Gửi đến người con gái đặc biệt của anh...</p>
+        <img
+          src="https://github.com/aukhuii/8-3/blob/main/assets/1cc57139557f2a109f7797e85cbe31e8_0.jpeg?raw=true"
+          alt="Âu Khôi"
+          class="avatar"
+        />
+        <h1>
+          Chúc Mừng Ngày Quốc Tế Phụ Nữ <br />
+          Happy woman day!!
+        </h1>
+        <p style="font-size: large">
+          Gửi đến người con gái đặc biệt của anh...
+        </p>
         <div class="scroll-down">⬇️ Kéo xuống dưới nhé</div>
       </div>
     </section>
 
     <section class="section part-2">
-      <div class="glass-card">
-        <img
-          src="assets/couple-photo.jpg"
-          alt="Khôi và Linh"
-          class="couple-img"
-        />
-        <h2>Gửi Linh ❤️</h2>
-        <p class="wish-text">
-          Chúc em luôn xinh đẹp, rạng rỡ và hạnh phúc bên anh. Cảm ơn em đã luôn
-          đồng hành cùng anh trong suốt thời gian qua!
+      <div class="glass-card gallery-container">
+        <h2>Chúng mình nò ~~</h2>
+        <div class="photo-grid">
+          <div class="photo-item">
+            <img
+              src="https://raw.githubusercontent.com/aukhuii/8-3/refs/heads/main/assets/20260131_153313.jpg"
+              alt="Kỷ niệm 1"
+            />
+          </div>
+          <div class="photo-item">
+            <img
+              src="https://raw.githubusercontent.com/aukhuii/8-3/refs/heads/main/assets/20260222_164457.jpg"
+              alt="Kỷ niệm 2"
+            />
+          </div>
+          <div class="photo-item">
+            <img
+              src="https://raw.githubusercontent.com/aukhuii/8-3/refs/heads/main/assets/20260301_122736.jpg"
+              alt="Kỷ niệm 3"
+            />
+          </div>
+          <div class="photo-item">
+            <img
+              src="https://raw.githubusercontent.com/aukhuii/8-3/refs/heads/main/assets/20260301_122742.jpg"
+              alt="Kỷ niệm 4"
+            />
+          </div>
+          <div class="photo-item">
+            <img
+              src="https://raw.githubusercontent.com/aukhuii/8-3/refs/heads/main/assets/20260129_154745.jpg"
+              alt="Kỷ niệm 5"
+            />
+          </div>
+          <div class="photo-item">
+            <img
+              src="https://raw.githubusercontent.com/aukhuii/8-3/refs/heads/main/assets/c6fa5aa7804afe2ba09a1b3fa600e047.jpg"
+              alt="Kỷ niệm 6"
+            />
+          </div>
+        </div>
+        <p class="wish-text" style="font-size: x-large">
+          Mỗi tấm ảnh là một mảnh ký tự tuyệt vời mà anh muốn lưu giữ cùng em.
+          Em yêu của anh.
+        </p>
+        <p class="wish-text" style="font-size: large">
+          😽Gửi Linh, người con gái luôn mang đến cho anh niềm vui và sự ấm áp.
+          Chúc em ngày 8/3 thật hạnh phúc, luôn giữ vững nụ cười rạng rỡ trên
+          môi. Cảm ơn em vì đã là một phần tuyệt vời trong cuộc sống của anh.
+          Yêu em rất nhiều!😜
         </p>
       </div>
     </section>
 
     <section class="section part-3">
       <div class="glass-card">
-        <h2>Cảm ơn em vì tất cả!</h2>
+        <h2>
+          Cảm ơn em vì tất cả! Cảm ơn em vì đã là một phần thanh xuân của anh.
+        </h2>
         <p>Yêu em rất nhiều.</p>
-        <span>— Từ Âu Khôi (Kyle) —</span>
+        <span>— Từ Âu Khôi (Khôi bel) —</span>
       </div>
     </section>
     <script>
@@ -68,5 +134,30 @@
         }
       }
     </style>
+    <script>
+      function startExperience() {
+        const splash = document.getElementById("splash-screen");
+        const mainContent = document.getElementById("main-content");
+        const music = document.getElementById("bg-music");
+        // Làm mờ trang mở đầu
+        splash.classList.add("fade-out");
+
+        // Phát nhạc
+        music.currentTime = 8;
+        music.play().catch((error) => {
+          console.log(
+            "Trình duyệt chặn tự động phát, cần tương tác người dùng.",
+          );
+        });
+
+        // Hiện nội dung chính từ từ
+        mainContent.style.opacity = "1";
+        mainContent.style.pointerEvents = "auto"; // Cho phép tương tác với nội dung
+
+        // (Tùy chọn) Bật nhạc nền ở đây nếu bạn có
+        // const bgMusic = document.getElementById('bg-music');
+        // bgMusic.play();
+      }
+    </script>
   </body>
 </html>
