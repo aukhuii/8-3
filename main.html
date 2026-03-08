@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chúc mừng 8/3 gửi Linh ❤️</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="section part-1">
+      <div class="glass-card">
+        <img src="assets/your-photo.jpg" alt="Âu Khôi" class="avatar" />
+        <h1>Chúc Mừng Ngày Quốc Tế Phụ Nữ</h1>
+        <p>Gửi đến người con gái đặc biệt của anh...</p>
+        <div class="scroll-down">⬇️ Kéo xuống dưới nhé</div>
+      </div>
+    </section>
+
+    <section class="section part-2">
+      <div class="glass-card">
+        <img
+          src="assets/couple-photo.jpg"
+          alt="Khôi và Linh"
+          class="couple-img"
+        />
+        <h2>Gửi Linh ❤️</h2>
+        <p class="wish-text">
+          Chúc em luôn xinh đẹp, rạng rỡ và hạnh phúc bên anh. Cảm ơn em đã luôn
+          đồng hành cùng anh trong suốt thời gian qua!
+        </p>
+      </div>
+    </section>
+
+    <section class="section part-3">
+      <div class="glass-card">
+        <h2>Cảm ơn em vì tất cả!</h2>
+        <p>Yêu em rất nhiều.</p>
+        <span>— Từ Âu Khôi (Kyle) —</span>
+      </div>
+    </section>
+    <script>
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerText = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+      setInterval(createHeart, 300);
+    </script>
+
+    <style>
+      .heart {
+        position: fixed;
+        top: -1vh;
+        font-size: 20px;
+        user-select: none;
+        z-index: 1000;
+        animation: fall linear forwards;
+      }
+      @keyframes fall {
+        to {
+          transform: translateY(105vh);
+        }
+      }
+    </style>
+  </body>
+</html>
